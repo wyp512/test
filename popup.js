@@ -18,3 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+//用于监听 Chrome 扩展存储变化
+chrome.storage.onChanged.addListener((changes, namespace) => {
+    if (namespace === 'local' && changes.llmResponse) {
+    //确保变化发生在 local 存储空间中
+    //确保 llmResponse 这个键发生了变化
+        const entryDiv = document.querySelector('.dictionary-entry');
+        entryDiv.innerHTML = changes.llmResponse.newValue;
+        //当 llmResponse 发生变化时，页面上的 dictionary-entry 元素的内容会自动更新为新的值
+    }
+});
