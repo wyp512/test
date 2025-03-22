@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     // 为DOMContentLoaded事件添加监听器，当 popup.html 加载完毕后执行
     const entryDiv = document.querySelector('.dictionary-entry');
